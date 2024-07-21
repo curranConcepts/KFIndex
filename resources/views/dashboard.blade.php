@@ -4,13 +4,13 @@
 
         <div class="py-12" style="width:33%;">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg" style="height:360px;">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <h2 class="text-xl font-semibold text-gray-900 dark:text-white" style="margin:10px 0;">Welcome to the Farm {{ $user->name }}</h2>
                         <hr />
-                        <h2 class="mt-6 ml-4 text-xl font-semibold text-gray-900 dark:text-white">Alerts:<p style="color:green">&check; None</p></h2>
+                        <h2 class="mt-6 ml-4 text-xl font-semibold text-gray-900 dark:text-white">Alerts:<p style="color:green">&check; None</p><p style="color:#FFD43B;">&tritime; Warning</p><p style="color:#f55247">&#x274C; Alert</p></h2>
                         <br />
-                        <h2 class="mt-6 ml-4 text-xl font-semibold text-gray-900 dark:text-white">Daily Schedule:<p style="color:green">&check; Done</p></h2>
+                        <h2 class="mt-6 ml-4 text-xl font-semibold text-gray-900 dark:text-white">Daily Schedule:<p style="color:green">&check; Done</p><p style="color:#FFD43B;">&tritime; To Do</p></h2>
                     </div>
                 </div>
             </div>
