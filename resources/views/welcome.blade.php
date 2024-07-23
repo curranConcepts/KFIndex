@@ -1,6 +1,13 @@
-@include('partials.header')
+@extends('layouts.app')
 
-                <div class="row -padding-top">
+@section('content')
+    <div>
+        <div class="row">
+            <div class="twelve columns -centering">
+                <img src="/images/wheat_chick.png" alt="chick wearing cowboy hat" style="height: 300px;margin: -70px auto 0 auto;">
+            </div>
+        </div>
+                <div class="row">
                         <div class="five columns push_one card -rounded -shadow -margin-10">
                         <a href="/flock" class="">
                             <div class="flex">
@@ -38,7 +45,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row" style="padding-bottom:40px;">
                         <div class="five columns push_one card -rounded -shadow -margin-10">
                         <a href="/ornamentals" class="">
                             <div class="flex">
@@ -76,5 +83,5 @@
                         </div>
 
                     </div>
-
-@include('partials.footer')
+    </div>
+                @endsection

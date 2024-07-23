@@ -11,12 +11,14 @@ class PageController extends Controller
         return view('welcome');
     }
 
+    public function flock(Request $request)
+    {
+        return view('pages.flock');
+    }
+
     public function page($slug, Request $request)
     {
         switch ($slug) {
-            case 'flock':
-                return view('pages.flock');
-                break;
             case 'crops':
                 return view('pages.crops');
                 break;

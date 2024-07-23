@@ -1,7 +1,9 @@
-@include('partials.header')
+@extends('layouts.app')
 
-<div>
+@section('content')
+
+<div style="height:calc(100vh - 190px);">
     <h1 class="-centering">Coming Soon!</h1>
 </div>
 
-@include('partials.footer')
+@endsection

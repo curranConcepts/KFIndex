@@ -1,42 +1,78 @@
-@include('partials.header')
+@extends('layouts.app')
 
-<div class="row">
-    <div class="four columns sideBar">
-        <h2>Upcoming Birthdays</h2>
-    <!--    <form action="/flock/store" method="POST" enctype="multipart/form-data">-->
-    <!--    @csrf-->
-    <!--    <div>-->
-    <!--        <label for="image">Image:</label>-->
-    <!--        <input type="file" id="image" name="image">-->
-    <!--    </div>-->
-    <!---->
-    <!--    <div>-->
-    <!--        <label for="name">Name:</label>-->
-    <!--        <input type="text" id="name" name="name" required>-->
-    <!--    </div>-->
-    <!---->
-    <!--    <div>-->
-    <!--        <label for="birthday">Birthday:</label>-->
-    <!--        <input type="date" id="birthday" name="birthday">-->
-    <!--    </div>-->
-    <!---->
-    <!--    <div>-->
-    <!--        <label for="breed">Breed:</label>-->
-    <!--        <input type="text" id="breed" name="breed">-->
-    <!--    </div>-->
-    <!---->
-    <!--    <div>-->
-    <!--        <label for="notes">Notes:</label>-->
-    <!--        <textarea id="notes" name="notes" rows="3"></textarea>-->
-    <!--    </div>-->
-    <!---->
-    <!--    <button type="submit" class="-light-bg -margin-top -full-width">Add Chicken</button>-->
-    <!--</form>-->
-    </div>
-        <div class="eight columns">
-            <h1>Flock</h1>
+@section('content')
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
         </div>
-</div>
+    @endif
+    <div class="row">
+        <div class="twelve columns">
+            @auth
+            <div class="accordion">
+                <button class="accordion-button button -white-bg -rounded">Add a Member to the Flock</button>
+                <div class="accordion-content">
+                    <div class="container">
+                        <form action="#" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            </div>
 
+                            <div class="form-group">
+                                <label for="birthday">Birthday</label>
+                                <input type="date" name="birthday" id="birthday" class="form-control @error('birthday') is-invalid @enderror" value="{{ old('birthday') }}" required>
+                                @error('birthday')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            </div>
 
-@include('partials.footer')
+                            <div class="form-group">
+                                <label for="breed">Breed</label>
+                                <input type="text" name="breed" id="breed" class="form-control @error('breed') is-invalid @enderror" value="{{ old('breed') }}" required>
+                                @error('breed')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" name="age" id="age" class="form-control @error('age') is-invalid @enderror" value="{{ old('age') }}" required>
+                                @error('age')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bio">Bio</label>
+                                <textarea name="bio" id="bio" class="form-control @error('bio') is-invalid @enderror">{{ old('bio') }}</textarea>
+                                @error('bio')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            </div>
+
+                            <button type="submit" class="button -clover-bg" style="color:white;">Add Chicken</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        @endauth
+            <h1>Flock</h1>
+            @livewire('chickens')
+        </div>
+    </div>
+@endsection
